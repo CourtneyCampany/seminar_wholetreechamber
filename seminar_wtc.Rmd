@@ -3,6 +3,7 @@ title: Understanding resource allocation in Eucalyptus trees,
               using Whole Tree Chambers
 author: "Court Campany"
 job   : Research Fellow, Hawkesbury Institute for the Environment
+runtime: shiny
 output:
   ioslides_presentation:
     widescreen: true
@@ -29,6 +30,53 @@ output:
 * twitter @court_campany
 
 <IMG STYLE="position:absolute; TOP:175px; LEFT:450px; WIDTH:475px; HEIGHT:475px" SRC="img/thesiscloud2.png">
+
+## canopy physiology
+
+```{r, echo = FALSE}
+library(shiny)
+library(doBy)
+gmes <- read.csv("data/gmes_wellwatered.csv")
+
+###get average by id
+gm_agg <- summaryBy(Photo+ Cond + gm_bar ~ chamber+id+leaf +light+temp+leaflight+Month, data=gmes, FUN=mean, keep.names=TRUE)
+  gm_agg$leaf <- gsub("s", "S", gm_agg$leaf)
+  gm_agg$light <- gsub("high", "Sun-light", gm_agg$light)
+  gm_agg$light <- gsub("low", "Shade-light", gm_agg$light)
+
+
+shinyApp(
+  
+  ui = pageWithSidebar(
+     sidebarPanel(
+    ##type selection
+    checkboxGroupInput("whichleaf", "Pick a leaf:",leaflight)
+  ),
+  
+  mainPanel(
+    plotOutput('plot1'))
+  ),
+  
+  server = function(input, output) {
+   leaf_ss<- reactive({
+    subset(gm_agg, species %in% input$whichleaf)
+    })
+  
+  output$plot1 <- renderPlot({
+    
+    par(mar=c(4,4,1,1), cex=1.25, las=1, cex.axis=.8, cex.lab=1,              mgp=c(2.5,1,0))
+    plot(gm_agg$Photo~gm_agg$Cond,
+         col=leaflight, ylim=c(5,25), xlim=c(0,.5), xlab="")
+    legend("topleft", alllab, pch=c(16,16,16,16,17), col=allcols,                 inset = 0.01, bty='n',cex=.8)
+
+    points(leaf_ss()[[8]]~ leaf_ss()[[9]], cex=2)
+    
+  })
+  },
+  
+  options = list(height = 500)
+)
+```
 
 ## Science Background
 <hr>
