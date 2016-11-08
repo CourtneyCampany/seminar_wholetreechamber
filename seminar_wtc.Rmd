@@ -31,50 +31,116 @@ output:
 
 <IMG STYLE="position:absolute; TOP:175px; LEFT:450px; WIDTH:475px; HEIGHT:475px" SRC="img/thesiscloud2.png">
 
-## canopy physiology
+## Shade leaves exhibited apparent inefficient water use
+<hr>
 
 ```{r, echo = FALSE}
 library(shiny)
 library(doBy)
+library(scales)
 gmes <- read.csv("data/gmes_wellwatered.csv")
+suncol <- alpha("#ff7f00",0.85) 
+shacol <-  alpha("#377eb8", 0.85) 
+lightscol <- alpha("#47a244", 0.85) 
+allcols=c(suncol, shacol, lightscol, "black", "black")
+alllab <- c("Sun", "Shade-Low Light", "Shade-High Light", "AT", "ET")
 
 ###get average by id
 gm_agg <- summaryBy(Photo+ Cond + gm_bar ~ chamber+id+leaf +light+temp+leaflight+Month, data=gmes, FUN=mean, keep.names=TRUE)
-  gm_agg$leaf <- gsub("s", "S", gm_agg$leaf)
-  gm_agg$light <- gsub("high", "Sun-light", gm_agg$light)
-  gm_agg$light <- gsub("low", "Shade-light", gm_agg$light)
+cond_dat <- gm_agg[, c("leaflight", "Photo", "Cond")]
+
+leafnames <- unique(cond_dat$leaflight)
+leafnames2 <- data.frame(leaflight = leafnames, colorleaf = c(lightscol, shacol, suncol))
+
+cond_dat2 <- merge(cond_dat, leafnames2)
+cond_dat2$colorleaf <- as.character(cond_dat2$colorleaf)
+
+palette(c(lightscol, shacol, suncol))
+
+shinyApp(
+  
+  ui = fluidPage(
+      titlePanel("Photosynthesis vs Stomatal Conductance"),
+      sidebarLayout(
+        ##type selection
+        sidebarPanel(
+        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low", "Shade -high light" = "shade-high"),selected="sun-high")
+        ),
+  
+      mainPanel(
+        plotOutput('plot1'))
+  )
+  ),
+  
+  server = function(input, output) {
+    leaf_ss<- reactive({
+      subset(cond_dat2, leaflight %in% input$whichleaf)[,-4]
+      })
+    
+    # leaf.color <- reactive({
+    #   unique(subset(cond_dat2, leaflight %in% input$whichleaf)[,-c(2,3)])
+    #   })
+    
+    output$plot1 <- renderPlot({
+    
+    plot(cond_dat2$Photo ~ cond_dat2$Cond,type='n',
+           col="blue", ylim=c(5,25), xlim=c(0,.5),                                                     xlab=expression(italic(g)[s]~~(mol~m^-2~s^-1)),
+           ylab=expression(italic(A[n])~~(mu*mol~m^-2~s^-1)))
+           
+    legend("topleft", alllab, pch=c(16,16,16,16,17), col=allcols, inset = 0.01, 
+             bty='n',cex=.8)
+    
+    points(leaf_ss()[[2]]~ leaf_ss()[[3]], cex=2, pch=21, bg=(leaf_ss()[,1]))
+    
+  })
+  }
+)
+```
+
+##Rapid <strong>↑</strong> in g<sub>m</sub> enables sunfleck response
+<hr>
+
+```{r, echo = FALSE}
+
+gm_dat <- gm_agg[, c("leaflight", "Photo", "gm_bar")]
+
+gm_dat2 <- merge(gm_dat, leafnames2)
+gm_dat2$colorleaf <- as.character(gm_dat2$colorleaf)
 
 
 shinyApp(
   
-  ui = pageWithSidebar(
-     sidebarPanel(
-    ##type selection
-    checkboxGroupInput("whichleaf", "Pick a leaf:",leaflight)
-  ),
+  ui = fluidPage(
+      titlePanel("Photosynthesis vs Stomatal Conductance"),
+      sidebarLayout(
+        ##type selection
+        sidebarPanel(
+        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low", "Shade -high light" = "shade-high"),selected="sun-high")
+        ),
   
-  mainPanel(
-    plotOutput('plot1'))
+      mainPanel(
+        plotOutput('plot1'))
+  )
   ),
   
   server = function(input, output) {
-   leaf_ss<- reactive({
-    subset(gm_agg, species %in% input$whichleaf)
-    })
-  
-  output$plot1 <- renderPlot({
+    leaf_ss<- reactive({
+      subset(gm_dat2, leaflight %in% input$whichleaf)[,-4]
+      })
     
-    par(mar=c(4,4,1,1), cex=1.25, las=1, cex.axis=.8, cex.lab=1,              mgp=c(2.5,1,0))
-    plot(gm_agg$Photo~gm_agg$Cond,
-         col=leaflight, ylim=c(5,25), xlim=c(0,.5), xlab="")
-    legend("topleft", alllab, pch=c(16,16,16,16,17), col=allcols,                 inset = 0.01, bty='n',cex=.8)
-
-    points(leaf_ss()[[8]]~ leaf_ss()[[9]], cex=2)
+    output$plot1 <- renderPlot({
+    
+    plot(gm_dat2$Photo ~ gm_dat2$gm_bar,type='n',
+           col="blue", ylim=c(5,25), xlim=c(0,.5),                                                     xlab=expression(italic(g)[m]~~(mol~m^-2~s^-1~bar^-1)),
+           ylab=expression(italic(A[n])~~(mu*mol~m^-2~s^-1)))
+           
+    legend("topleft", alllab, pch=c(16,16,16,16,17), col=allcols, inset = 0.01, 
+             bty='n',cex=.8)
+    
+    points(leaf_ss()[[2]]~ leaf_ss()[[3]], cex=2, pch=21, bg=(leaf_ss()[,1]))
     
   })
-  },
-  
-  options = list(height = 500)
+  }
 )
 ```
 
