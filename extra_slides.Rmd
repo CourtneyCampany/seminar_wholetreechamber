@@ -1,0 +1,30 @@
+---
+title: "extra slides"
+author: "Court Campany"
+date: "14 November 2016"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Shade leaves exhibited apparent inefficient water use
+<hr>
+
+<IMG STYLE="position:absolute; TOP: 175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/ags2.png"> 
+
+## Does the answer lie within sunflecks?
+<hr>
+
+<IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/ags1.png">
+
+
+## Rapid <strong>↑</strong> in g<sub>m</sub> enables sunfleck response
+<hr>
+
+<IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/agm.png">
+
+## Is tree C allocation fixed?
+<hr>
+<IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/treeallocation.png">
