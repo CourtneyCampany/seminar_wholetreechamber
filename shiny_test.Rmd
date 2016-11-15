@@ -10,18 +10,16 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Shiny Presentation
+## 
 
-This R Markdown presentation is made interactive using Shiny. The viewers of the presentation can change the assumptions underlying what's presented and see the results immediately. 
+<IMG STYLE="position:absolute; TOP:150px; LEFT:5px;"  SRC="img/pce_paper.PNG">
 
 
 ## Is tree C allocation fixed?
 <hr>
 
-```{r, echo=FALSE, message=FALSE}
-library(shiny)
-library(doBy)
 
+```{r, echo=FALSE, message=FALSE}
 treeC <- read.csv("data/Cflux_day_trt.csv")
   treeC$Date <- as.Date(treeC$Date)
   treeC$bolebranch <- with(treeC, boleC+branchC)
@@ -44,8 +42,10 @@ ui = fluidPage(
       sidebarLayout(position="right",
         ##type selection
         sidebarPanel(
+        style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:thick",
         checkboxGroupInput("whichtreatment", "Pick a treatment:",c("aCO2-dry" = "ambient-dry", "aCO2-wet" = "ambient-wet", "eCO2-dry" = "elevated-dry", "eCO2-wet" = "elevated-wet"), selected="ambient-wet"),
-        width=3
+        width=3,
+        checkboxGroupInput("whichcomponent", "Pick a component:",c("Flux" = "fluxC", "Leaves" = "leafC", "Bole" = "boleC",  "Branch" = "branchC"))
         ),
   
       mainPanel(width=9,
@@ -55,14 +55,19 @@ ui = fluidPage(
   
 server = function(input, output) {
     
+
     flux_ss<- reactive({
       subset(treeC, treatment %in% input$whichtreatment)
       })
-
+    
     roots_ss<- reactive({
       subset(roots, treatment %in% input$whichtreatment)
       })
     
+    component_ss <- reactive({
+      ###index here by column choice
+      treec[, c(1, input$whichcomponent)]
+    })
     
 output$plot1 <- renderPlot({
 
@@ -89,5 +94,41 @@ legend(x=13975, y=25300, dayClab, lty = c(1, 3, 2, 5, -1), pch = c(-1, -1, -1, -
 - Bullet 1
 - Bullet 2
 - Bullet 3
+
+## test
+
+```{r2, echo=FALSE}
+vchoices <- 1:ncol(mtcars)
+names(vchoices) <- names(mtcars)
+
+shinyApp(
+  ui = basicPage(
+    h2('The mtcars data'),
+    checkboxGroupInput("columns","Select Columns",choices=vchoices,inline = T),
+    dataTableOutput('mytable')
+
+
+  ),
+  server = function(input, output) {
+
+    observeEvent(input$columns,{
+      cols <- as.numeric(input$columns)
+      if(length(input$columns) == 1){
+        df <- data.frame(mtcars[,cols])
+        names(df) <- names(mtcars)[cols]
+        output$mytable = renderDataTable(df)
+
+      }else{
+        output$mytable = renderDataTable(mtcars[,cols])
+
+      }
+
+
+    })
+
+  }
+)
+```
+
 
 
