@@ -128,15 +128,15 @@ leaflet() %>% addTiles%>%
 <br />
 
 * <strong>What they are:</strong>
-  + tools for plant physiological research
-  + excellent manipulative control of climate change factors
-  + a step beyond seedling based physiology experiments
-  + access to entire canopy
+  + Tools for plant physiological research
+  + Excellent manipulative control of climate change factors
+  + Step beyond container based physiology experiments
+  + Entire canopy access
   <br />
   <br />
   
 * <strong>What they are not:</strong>
-  + a proxy for ecosystem level processes
+  + A proxy for ecosystem level processes
   
 <IMG STYLE="position:absolute; TOP:225px; LEFT:750px;" SRC="img/wtc_design.jpg">
 
@@ -145,9 +145,9 @@ leaflet() %>% addTiles%>%
 ###Dynamic leaf physiology within tree canopies
 <IMG STYLE="position:absolute; TOP:300px; LEFT:150px; WIDTH:800px; HEIGHT:200px" SRC="img/scaling.png">
 
-## 
-
-<IMG STYLE="position:absolute; TOP:150px; LEFT:5px;"  SRC="img/pce_paper.PNG">
+## Dynamic leaf physiology within tree canopies
+<hr>
+<IMG STYLE="position:absolute; TOP:175px; LEFT:150px;"  SRC="img/pce_paper.PNG">
 
 ## Leaves are reported to have an optimized behavior
 <hr>
@@ -541,7 +541,7 @@ shinyApp(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:medium",
-        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low", "Shade -high light" = "shade-high"),selected="sun-high")
+        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low", "Shade -high light" = "shade-high"))
         ),
   
       mainPanel(
@@ -582,8 +582,8 @@ shinyApp(
 <br />
 <br />
 
-* <strong>Sunfleck research focuses heavily on understory, but what about within the canopy?</strong>
-  + Enhancing light interception is so important in canopy C gain, and for us as we scale up
+* <strong>Sunfleck research focuses heavily on understory</strong>
+  + Enhancing light interception is crucial for canopy C gain, 
 
 <br />
 
@@ -610,7 +610,7 @@ shinyApp(
 
 <br />
 
-> - <strong>Implications for scaling leaf level measurments to the canopy</strong>
+> - <strong>Implications for scaling up leaf level measurments</strong>
 
 </div> 
 
@@ -634,18 +634,17 @@ shinyApp(
 * <strong>Requires knowledge of global change impacts on forest ecosystems</strong>
 
 >  - How is net canopy C gain affected?
->  - Is tree C allocation fixed or dymanic?
 >  - What components of allocation are most affected?
 
 <br />
 
-> - <strong>Allocation schemes are necessary to constrain models</strong>
+* <strong>Allocation schemes are necessary to constrain models</strong>
 
+>  - Is tree C allocation fixed or dymanic?
 
 ## Strong focus on belowground C allocation (TBCA)
 <hr>
 <IMG STYLE="position:absolute; TOP:200px; LEFT:100px;  WIDTH:900px; HEIGHT:400px" SRC="img/tbcastudies.png">
-
 
 
 ## TBCA and global change: FACE studies
@@ -684,7 +683,7 @@ shinyApp(
 
 * <strong>Soil respiration scaled up</strong>
 
->  -  point measurements (monthly) to yearly fluxes
+>  -  Point measurements (monthly) to yearly fluxes
 
 <br />
 
@@ -709,7 +708,7 @@ shinyApp(
 <br />
 <br />
 
-* <strong>Separation of soil respirtory flux</strong>
+* <strong>Separation of soil respiratory flux</strong>
 </div>
 
 <IMG STYLE="position:absolute; TOP:170px; LEFT:75px; WIDTH:400px; HEIGHT:500px" SRC="img/wetchamber.JPG">
@@ -752,7 +751,6 @@ shinyApp(
 ## Calculating tree C allocation
 <hr>
 <br />
-<br />
 
 * <strong>Once trees are large enough, chamber floors go in and then chamber fluxes start</strong>
 
@@ -762,14 +760,15 @@ shinyApp(
 
 * <strong>Allometric surveys fortnightly</strong>
 
->  - Height, diameter at regular intervals, leaf litter and leaf counts
->  - Branch counts and lengths through time  
+>  - Height and diameter measurements, 
+>  - Leaf litter collection and leaf counts
+>  - Branch counts and lengths 
 
 <br />
 
 * <strong>Biomass harvest by structural compoents</strong>
 
->  - Density of branches, bole wood, bole bark
+>  - Density of branches, bole wood, bark
 >  - Specific leaf area (SLA)
 
 ## Component C allocation with mass balance
@@ -814,8 +813,8 @@ shinyApp(
 * <strong>Changes in C allocation encompass effects of tissue turnover, the storage and use of carbohydrates and root exudation</strong>
 
  > - Each represents a significant responses to environmental change.
- > - Patterns in biomass partitioning and C allocation may not be consistent with respect to the tissue in question,  
- > - Contributes to the current uncertainty in modelling tree growth responses climate change .
+ > - Patterns in biomass partitioning and C allocation may not be consistent  
+ > - Contributes to the current uncertainty in modelling tree growth responses global change
 
 <br />
 
@@ -824,6 +823,11 @@ shinyApp(
  > - WTC1: Leaf<sub>m</sub> = Leaf<sub>a</sub> * Canopy Flux C - Leaf<sub>t</sub>)
  > - Solve for allocation
  > - WTC1:  Leaf<sub>a</sub> = (Leaf<sub>m</sub> - Leaf<sub>t</sub>) / Canopy Flux C 
+ 
+## WTC: Mass balance approach
+<hr>
+
+<IMG STYLE="position:absolute; TOP:150px; LEFT:200px; WIDTH:700px; HEIGHT:500px" SRC="img/conceptfig4.png"> 
  
 ## Leaf area reduced in CO<sub>2</sub>
 <hr>
