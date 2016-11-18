@@ -36,16 +36,16 @@ output:
 ```{r echo=FALSE}
 library(leaflet)
 locations <- read.csv("data/memap.csv")
-locations_usa <- locations[1:6,]
 
 leaflet() %>% addTiles%>%
-      addCircleMarkers(locations_usa[1:nrow(locations_usa),3], 
-                 locations_usa[1:nrow(locations_usa),2],
-                 popup = locations_usa[1:nrow(locations_usa),1],
-                 col=c("red", "gold", "orange", "forestgreen", "navy", "black"),
-                 opacity=c(.85, 100, .85, .85, .85, .85),
-                fillColor = c("white", "black", "white", "white", "grey", "darkgoldenrod"),
-                 fillOpacity = c(100, 100, 100, 0, 85, 100), weight=3)
+      addCircleMarkers(locations[1:nrow(locations),3], 
+                 locations[1:nrow(locations),2],
+                 popup = locations[1:nrow(locations),1],
+                 col=c("red", "gold", "orange", "forestgreen", "navy", "black", "darkgreen",                         rep("darkgreen",19),"#990033"),
+                 opacity=c(.85, 100, .85, .85, .85, .85, rep(.85, 21)),
+                fillColor = c("white", "black", "white", "white", "grey", "darkgoldenrod", "plum", 
+                        "white", rep("white",19)),
+                 fillOpacity = c(100, 100, 100, 0, 85, 100, rep(100, 21)), weight=3)
  
 ```
 
@@ -147,7 +147,7 @@ leaflet() %>% addTiles%>%
 
 ## Dynamic leaf physiology within tree canopies
 <hr>
-<IMG STYLE="position:absolute; TOP:175px; LEFT:150px;"  SRC="img/pce_paper.PNG">
+<IMG STYLE="position:absolute; TOP:200px; LEFT:100px;"  SRC="img/pce_paper.PNG">
 
 ## Leaves are reported to have an optimized behavior
 <hr>
@@ -198,9 +198,6 @@ leaflet() %>% addTiles%>%
 
 * <strong>Photosynthetic capacity ↓ in shade leaves</strong>
 
-+ <strong>Maximizes photosynthesis (theoritically)</strong>
-
-
 ## Photosynthesis is driven by diffusion
 <hr>
 <br />
@@ -247,7 +244,7 @@ leaflet() %>% addTiles%>%
 
 </div>
 
-## WTC3: Resource distrubution of *Eucalpytus tereticornis*
+## WTC3: Resource distribution of *Eucalpytus tereticornis*
 <hr>
 
 <div style="float: left; width: 50%;">
@@ -272,7 +269,7 @@ leaflet() %>% addTiles%>%
 
 * <strong>Water Use Efficiency</strong>
  + ITE = Photosynthesis / Transpiration
- + delta^13C = WUE over leaf lifespan
+ + Bulk leaf<sup>13</sup>C = WUE over leaf lifespan
 
 </div>
 
@@ -312,7 +309,7 @@ leaflet() %>% addTiles%>%
 <br />
 
 * <strong>Do light gradients define leaf properties</strong>
-  +Resources and photosynthetic capacity (<strong>A<sub>max</sub></strong>) should be <strong>↑</strong> in sun leaves  
+  + Resources and photosynthetic capacity (<strong>A<sub>max</sub></strong>) should be <strong>↑</strong> in sun leaves  
 <br />
 
 * <strong>Is the canopy optimized to <strong>↑</strong> C gain while <strong>↓</strong> water loss?</strong>
@@ -338,13 +335,12 @@ leaflet() %>% addTiles%>%
 <br />
 
 * <strong>Leaves measured at current light environment</strong>
- + Paired WTC compairsons
  + 'Lights On' for shade leaves
  +  Max sunfleck response (fluxes stable)  
  
 ## WTC3: Were sun and shade leaves fundamentally different?
 <hr> 
-
+<IMG STYLE="position:absolute; TOP:190px; LEFT:200px; " SRC="img/eucleaves.jpg">
 
 ## 75% reduction in direct light to shade leaves
 <hr>
@@ -450,12 +446,6 @@ shinyApp(
 <IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/wue.png">
 
 
-## <strong>↓</strong> WUE from sub-optimal behavior of g<sub>s</sub>
-<hr>
-
-<IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/wue13C.png">
-
-
 ## Does the answer lie within sunflecks?
 <hr>
 
@@ -472,7 +462,7 @@ shinyApp(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:medium",
-        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low", "Shade - high light" = "shade-high"),selected="shade-low")
+        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low", "Shade - high light" = "shade-high"))
         ),
   
       mainPanel(
@@ -587,7 +577,7 @@ shinyApp(
 
 <br />
 
-> - <strong>Functional properties of eucalpytus leaves and canopies</strong> 
+> - <strong>Functional properties of *Eucalpytus* leaves and canopies</strong> 
 >  - Vertical leaf angles
 >  - Stomata on both sides of the leaf
 >  - Sparse canopies 
@@ -674,7 +664,9 @@ shinyApp(
 <hr>
 <br />
 
-* <strong>TBCA esimated as a residual</strong>
+<IMG STYLE="position:absolute; TOP:275px; LEFT:600px; " SRC="img/soilresp.jpg">
+
+* <strong>TBCA needs to be esimated as a residual</strong>
 
 >  -  Soil respiration - C pools of litter, soils and roots
 >  -  Assumes steady-state conditions
@@ -752,7 +744,7 @@ shinyApp(
 <hr>
 <br />
 
-* <strong>Once trees are large enough, chamber floors go in and then chamber fluxes start</strong>
+* <strong>Once trees are large enough, chamber floors installed and chamber fluxes measured</strong>
 
 >  - Continuous aboveground C fluxes over 11 months  
 
@@ -779,8 +771,8 @@ shinyApp(
 * <strong>Harvest</strong>
 
 >  - C content = 50% of dry biomass
->  - TBCA = Cumulative CO<sub>2</sub> flux  - Branch + Bole + Leaf mass
->  - TBCA - Root mass = Root turnover + exudation + microbial respiration)
+>  - TBCA = Cumulative CO<sub>2</sub> flux  - mass of Branch + Bole + Leaves
+>  - TBCA - Root mass = Root turnover + exudation + microbial respiration
 
 <br />
 
@@ -824,7 +816,7 @@ shinyApp(
  > - Solve for allocation
  > - WTC1:  Leaf<sub>a</sub> = (Leaf<sub>m</sub> - Leaf<sub>t</sub>) / Canopy Flux C 
  
-## WTC: Mass balance approach
+## WTC: Canopy C uptake to component allocation
 <hr>
 
 <IMG STYLE="position:absolute; TOP:150px; LEFT:200px; WIDTH:700px; HEIGHT:500px" SRC="img/conceptfig4.png"> 
@@ -854,9 +846,9 @@ shinyApp(
 <br />
 
 * <strong>Advantages of WTC</strong>
-  + allows testing of the coordination of canopy photosynthesis and growth
-  + can examine over longer time periods
-  + strongly correlated over 2.5 fold size range in *Eucalyptus* trees
+  + Allows testing of the coordination of canopy photosynthesis and growth
+  + Can examine over longer time periods
+  + <strong>strongly correlated over 2.5 fold size range in *Eucalyptus* trees</strong>
 
 ## Stem C mass reduced under CO<sub>2</sub> after ~1yr
 <hr>
@@ -964,12 +956,39 @@ legend(x=13975, y=25300, dayClab, lty = c(1, 3, 2, 5, -1), pch = c(-1, -1, -1, -
 ## Conclusions: Understanding canopy C gain
 <hr>
 
+* <strong>Estimated canopy uptake crucial</strong>
+
+ > - Relates strongly to tree growth
+ > - Scaling up is not simple 
+ > - Sensitivity to environment at multiple scales
 
 <IMG STYLE="position:absolute; TOP:175px; LEFT:50px; WIDTH:450px; HEIGHT:450px" SRC="img/treecarbon.png">
 
 ## Conclusions: C allocation from leaf to tree
 <hr>
-<IMG STYLE="position:absolute; TOP:150px; LEFT:300px; WIDTH:500px; HEIGHT:500px" SRC="img/treebracket.png">
+
+<IMG STYLE="position:absolute; TOP:175px; LEFT:300px; WIDTH:400px; HEIGHT:400px" SRC="img/treebracket.png">
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<strong> Quantifying the investment of photosynthetic C is key to assessing tree growth responses</strong>
+
 
 ## Reproducibility
 <hr>

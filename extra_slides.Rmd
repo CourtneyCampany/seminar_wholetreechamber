@@ -19,6 +19,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/ags1.png">
 
+## <strong>↓</strong> WUE from sub-optimal behavior of g<sub>s</sub>
+<hr>
+
+<IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/wue13C.png">
+
 
 ## Rapid <strong>↑</strong> in g<sub>m</sub> enables sunfleck response
 <hr>
