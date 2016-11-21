@@ -43,18 +43,33 @@ ui = fluidPage(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:thick",
-        checkboxGroupInput("whichtreatment", "Pick a treatment:",c("aCO2-dry" = "ambient-dry", "aCO2-wet" = "ambient-wet", "eCO2-dry" = "elevated-dry", "eCO2-wet" = "elevated-wet"), selected="ambient-wet"),
+        checkboxGroupInput("whichtreatment", "Pick a treatment:",c("aCO2-dry" = "ambient-dry", "aCO2-wet" =                            "ambient-wet", "eCO2-dry" = "elevated-dry", "eCO2-wet" = "elevated-wet"),                                    selected="ambient-wet"),
         width=3,
-        checkboxGroupInput("whichcomponent", "Pick a component:",c("Flux" = "fluxC", "Leaves" = "leafC", "Bole" = "boleC",  "Branch" = "branchC"))
+        checkboxGroupInput("whichcomponent", "Pick a component:",c("Flux C" = "fluxC", "Leaves" = "aboveC",                               "Boles" = "boleC",  "Branches" = "bolebranch")),
+        actionButton("Clear", label="Clear Treatment"),
+        actionButton("Clear2", label="Clear Component")
+        
         ),
   
       mainPanel(width=9,
         plotOutput('plot1'))
-  )
+)
   ),
   
-server = function(input, output) {
-    
+server = function(input, output, session) {
+
+  # observe({
+  #  if (input$Clear > 0) {
+  #      updateCheckboxGroupInput(session=session, inputId="whichtreatment",                                                choices=c("aCO2-dry","aCO2-wet","eCO2-dry", "eCO2-wet"), selected=NULL)
+  #  }
+  # })
+  #   
+  # observe({
+  #  if (input$Clear2 > 0) {
+  #      updateCheckboxGroupInput(session=session, inputId="whichcomponent",                                                choices=c("Flux C","Leaves","Boles", "Branches"), selected=NULL)
+  #  }
+  # })
+  
 
     flux_ss<- reactive({
       subset(treeC, treatment %in% input$whichtreatment)
@@ -65,8 +80,8 @@ server = function(input, output) {
       })
     
     component_ss <- reactive({
-      ###index here by column choice
-      treeC[, c("Date", input$whichcomponent)]
+      ###index here by column choice with treatment ???
+      treeC[treeC$treatment == input$whichtreatment, c("Date",input$whichcomponent, "treatment")]
     })
     
 output$plot1 <- renderPlot({
