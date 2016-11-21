@@ -1,7 +1,7 @@
 ---
-title: Understanding resource allocation in Eucalyptus trees,
+title: Understanding resource allocation in *Eucalyptus* trees,
               using Whole Tree Chambers
-author: "Court Campany"
+author: "Court Campany, Research Fellow"
 job   : Research Fellow, Hawkesbury Institute for the Environment
 runtime: shiny
 output:
@@ -399,8 +399,6 @@ leafnames2 <- data.frame(leaflight = leafnames, colorleaf = c(lightscol, shacol,
 cond_dat2 <- merge(cond_dat, leafnames2)
 cond_dat2$colorleaf <- as.character(cond_dat2$colorleaf)
 
-palette(c(lightscol, shacol, suncol))
-
 shinyApp(
   
   ui = fluidPage(
@@ -409,7 +407,7 @@ shinyApp(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:medium",
-        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low"),selected="sun-high")
+        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade-low light" =                                      "shade-low"),selected="sun-high")
         ),
   
       mainPanel(
@@ -424,11 +422,11 @@ shinyApp(
     
     output$plot1 <- renderPlot({
       
-      plotdat <- leaf_ss()
+    palette(c(lightscol, shacol, suncol))
       
     par(mar=c(5,5,1,1),las=1,cex.axis=1.25, cex.lab=1.75)  
     plot(cond_dat2$Photo ~ cond_dat2$Cond,type='n',
-           col="blue", ylim=c(5,25), xlim=c(0,.5), xlab=expression(italic(g)[s]~~(mol~m^-2~s^-1)), ylab=expression(italic(A[n])~~(mu*mol~m^-2~s^-1)))
+           col="blue", ylim=c(5,25), xlim=c(0,.5), xlab=expression(italic(g)[s]~~(mol~m^-2~s^-1)),                    ylab=expression(italic(A[n])~~(mu*mol~m^-2~s^-1)))
            
     legend("topleft", alllab, pch=c(16,16,16,17), col=allcols, inset = 0.01, 
              bty='n',pt.cex=1.5,cex=1.2)
@@ -462,7 +460,7 @@ shinyApp(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:medium",
-        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low", "Shade - high light" = "shade-high"))
+        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade-low light" = "shade-low", "Shade-high light" = "shade-high"))
         ),
   
       mainPanel(
@@ -476,9 +474,11 @@ shinyApp(
     
     output$plot1 <- renderPlot({
     
+    palette(c(lightscol, shacol, suncol))
+      
     par(mar=c(5,5,1,1),las=1,cex.axis=1.25, cex.lab=1.75)  
     plot(cond_dat2$Photo ~ cond_dat2$Cond,type='n',
-           col="blue", ylim=c(5,25), xlim=c(0,.5), xlab=expression(italic(g)[s]~~(mol~m^-2~s^-1)), ylab=expression(italic(A[n])~~(mu*mol~m^-2~s^-1)))
+           col="blue", ylim=c(5,25), xlim=c(0,.5), xlab=expression(italic(g)[s]~~(mol~m^-2~s^-1)),                    ylab=expression(italic(A[n])~~(mu*mol~m^-2~s^-1)))
            
     legend("topleft", alllab2, pch=c(16,16,16,16,17), col=allcols2, inset = 0.01, 
              bty='n',pt.cex=1.5,cex=1.2)
@@ -512,7 +512,12 @@ shinyApp(
 
 </div> 
 
-##Rapid <strong>↑</strong> in g<sub>m</sub> enables sunfleck response
+##g<sub>m</sub> <strong>↑</strong> ~40% in shade leaves under high light
+<hr>
+
+<IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/gm_shade.png">
+
+##Rapid <strong>↑</strong> in g<sub>m</sub> enables photosynthetic sunfleck response
 <hr>
 
 ```{r, echo = FALSE}
@@ -531,7 +536,7 @@ shinyApp(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:medium",
-        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade -low light" = "shade-low", "Shade -high light" = "shade-high"))
+        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade-low light" =                                      "shade-low", "Shade-high light" = "shade-high"))
         ),
   
       mainPanel(
@@ -539,19 +544,23 @@ shinyApp(
   )
   ),
   
-  server = function(input, output) {
+  server = function(input, output, session) {
+    
+    
     leaf_ss<- reactive({
       subset(gm_dat2, leaflight %in% input$whichleaf)
       })
     
     output$plot1 <- renderPlot({
     
+    palette(c(lightscol, shacol, suncol))
+      
     par(mar=c(5,5,1,1),las=1,cex.axis=1.25, cex.lab=1.75)  
     plot(gm_dat2$Photo ~ gm_dat2$gm_bar,type='n',
-           col="blue", ylim=c(5,25), xlim=c(0,.5),                                                     xlab=expression(italic(g)[m]~~(mol~m^-2~s^-1~bar^-1)),
+           col="blue", ylim=c(5,25), xlim=c(0,.45),                                                                    xlab=expression(italic(g)[m]~~(mol~m^-2~s^-1~bar^-1)),
            ylab=expression(italic(A[n])~~(mu*mol~m^-2~s^-1)))
            
-    legend("topleft", alllab, pch=c(16,16,16,16,17), col=allcols, inset = 0.01, 
+    legend("topleft", alllab2, pch=c(16,16,16,16,17), col=allcols2, inset = 0.01, 
              bty='n',pt.cex=1.5,cex=1.2)
     
     points(leaf_ss()[[2]]~ leaf_ss()[[3]], cex=2,  pch=c(16,17)[leaf_ss()[,4]],col=leaf_ss()[,1])
@@ -560,6 +569,7 @@ shinyApp(
   }
 )
 ```
+
 
 ## Do shade leaves 'lie in wait'?
 <hr>
@@ -876,8 +886,6 @@ modresults <- data.frame(lmf = c(coef(lmfmod[1]), coef(lmfmod[2])), smf = c(coef
 
 # plot bits ---------------------------------------------------------------
 
-palette(c("blue", "red"))
-
 leglab2 = c(expression(paste(aCO[2], ", " ,"wet")), expression(paste(aCO[2], ", " ,"dry")),
             expression(paste(eCO[2], ", " ,"wet")), expression(paste(eCO[2], ", " ,"dry")))
 
@@ -914,6 +922,7 @@ server = function(input, output, session) {
     
 output$plot1 <- renderPlot({
 
+palette(c("blue", "red"))
 par(mar=c(5,6,1,1),las=1, cex.axis=1, cex.lab=1.25, mgp=c(3,1,0))
   
 plot(massfrac$smf~massfrac$standingtreemass, ylim=c(0, .75), xlim=c(5000,21000), 
@@ -1053,7 +1062,7 @@ legend(x=13975, y=25300, dayClab, lty = c(1, 3, 2, 5, -1), pch = c(-1, -1, -1, -
 ## Conclusions: C allocation from leaf to tree
 <hr>
 
-<IMG STYLE="position:absolute; TOP:175px; LEFT:300px; WIDTH:400px; HEIGHT:400px" SRC="img/treebracket.png">
+<IMG STYLE="position:absolute; TOP:200px; LEFT:300px; WIDTH:400px; HEIGHT:400px" SRC="img/treebracket.png">
 <br />
 <br />
 <br />
