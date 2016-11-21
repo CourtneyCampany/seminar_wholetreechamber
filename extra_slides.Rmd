@@ -33,3 +33,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Is tree C allocation fixed?
 <hr>
 <IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/treeallocation.png">
+
+## LMF <strong>↑</strong> (+15%) and SMF <strong>↓</strong> (-6%) under CO<sub>2</sub>
+<hr>
+
+<IMG STYLE="position:absolute;  TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/massfrac.png">

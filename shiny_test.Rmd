@@ -43,9 +43,9 @@ ui = fluidPage(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:thick",
-        checkboxGroupInput("whichtreatment", "Pick a treatment:",c("aCO2-dry" = "ambient-dry", "aCO2-wet" =                            "ambient-wet", "eCO2-dry" = "elevated-dry", "eCO2-wet" = "elevated-wet"),                                    selected="ambient-wet"),
+        checkboxInput("whichtreatment", "Pick a treatment:",c("aCO2-dry" = "ambient-dry", "aCO2-wet" =                            "ambient-wet", "eCO2-dry" = "elevated-dry", "eCO2-wet" = "elevated-wet"),                                    selected="ambient-wet"),
         width=3,
-        checkboxGroupInput("whichcomponent", "Pick a component:",c("Flux C" = "fluxC", "Leaves" = "aboveC",                               "Boles" = "boleC",  "Branches" = "bolebranch")),
+        checkboxInput("whichcomponent", "Pick a component:",c("Flux C" = "fluxC", "Leaves" = "aboveC",                               "Boles" = "boleC",  "Branches" = "bolebranch")),
         actionButton("Clear", label="Clear Treatment"),
         actionButton("Clear2", label="Clear Component")
         

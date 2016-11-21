@@ -850,13 +850,89 @@ shinyApp(
   + Can examine over longer time periods
   + <strong>strongly correlated over 2.5 fold size range in *Eucalyptus* trees</strong>
 
-## Stem C mass reduced under CO<sub>2</sub> after ~1yr
+## LMF <strong>↑</strong> (+15%) under CO<sub>2</sub> while SMF <strong>↓</strong> (-6%) 
 <hr>
 
-<IMG STYLE="position:absolute;  TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/massfrac.png">
+
+```{r massfractions, echo=FALSE, message=FALSE}
+library(plotrix)
+massfrac <- read.csv("data/chamber_carbon.csv")
+
+  massfrac$standingtreemass <- with(massfrac, treeC-littercarbon)
+  ##calculated component fractions
+  massfrac$lmf <- with(massfrac, leafcarbon/standingtreemass)
+  massfrac$smf <- with(massfrac, (boleC+branchC)/standingtreemass)
+  massfrac$rmf <- with(massfrac, (rootC)/standingtreemass)
+  ##order by treatment
+  massfrac$treatment <- with(massfrac, paste(CO2_treatment, Water_treatment, sep="-"))  
+  massfrac <- massfrac[order(massfrac$treatment),]
+
+#simple mode for abline and sig
+lmfmod <- lm(lmf ~ standingtreemass, data = massfrac)
+smfmod <- lm(smf~ standingtreemass, data = massfrac)
+rmfmod <- lm(rmf ~ standingtreemass, data = massfrac)
+
+modresults <- data.frame(lmf = c(coef(lmfmod[1]), coef(lmfmod[2])), smf = c(coef(smfmod[1]), coef(smfmod[2])), rmf = c(coef(rmfmod[1]), coef(rmfmod[2])))
+
+# plot bits ---------------------------------------------------------------
+
+palette(c("blue", "red"))
+
+leglab2 = c(expression(paste(aCO[2], ", " ,"wet")), expression(paste(aCO[2], ", " ,"dry")),
+            expression(paste(eCO[2], ", " ,"wet")), expression(paste(eCO[2], ", " ,"dry")))
+
+fraclab <- expression(Component~Mass~Fraction~~(g~g^-1))
+
+# plotting ----------------------------------------------------------------
+
+shinyApp(
+  
+ui = fluidPage(
+      titlePanel(""),
+      sidebarLayout(position="right",
+        ##type selection
+        sidebarPanel(
+        style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:thick",
+        radioButtons("whichcomponent", "Pick a component:",c("LMF" = "lmf", "SMF" = "smf", "RMF" =                              "rmf"))
+        ),
+  
+      mainPanel(
+        plotOutput('plot1'))
+  )
+  ),
+  
+server = function(input, output, session) {
+
+    
+    component_ss <- reactive({
+      massfrac[, c("standingtreemass",input$whichcomponent,"Water_treatment","CO2_treatment")]
+    })
+    
+    mod_ss <- reactive({
+      modresults[,input$whichcomponent]
+    })
+    
+output$plot1 <- renderPlot({
+
+par(mar=c(5,6,1,1),las=1, cex.axis=1, cex.lab=1.25, mgp=c(3,1,0))
+  
+plot(massfrac$smf~massfrac$standingtreemass, ylim=c(0, .75), xlim=c(5000,21000), 
+     xlab="Tree Biomass (g C)", ylab=fraclab, type='n') 
+
+points(component_ss()[[2]] ~ component_ss()[[1]], cex=2, pch=c(1,19)[component_ss()[,3]], 
+        col=c(rep("blue",6), rep("red", 6)))
+        #col=component_ss()[,4])  #this doesnt work because of multiple column selection with input
+
+ablineclip(mod_ss(), x1=min(component_ss()[[1]]), x2=max(component_ss()[[1]]),lwd=2) 
+legend("topleft", leglab2, pch=c(19,1, 19, 1), col=c("blue", "blue", "red", "red"), bty='n')  
+
+  })
+  }
+)
+```
 
 
-## LMF and C allocation to leaves increased under CO<sub>2</sub>
+## C allocation to leaves increased under CO<sub>2</sub> (+28%)
 <hr>
 
 <IMG STYLE="position:absolute;  TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/allocation.png">
@@ -893,7 +969,7 @@ ui = fluidPage(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:medium",
-        checkboxGroupInput("whichtreatment", "Pick a treatment:",c("aCO2-dry" = "ambient-dry", "aCO2-wet" = "ambient-wet", "eCO2-dry" = "elevated-dry", "eCO2-wet" = "elevated-wet"), selected="ambient-wet"),
+        radioButtons("whichtreatment", "Pick a treatment:",c("aCO2-dry" = "ambient-dry", "aCO2-wet" = "ambient-wet", "eCO2-dry" = "elevated-dry", "eCO2-wet" = "elevated-wet"), selected="ambient-wet"),
         width=3
         ),
   
