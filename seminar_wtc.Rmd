@@ -1,6 +1,5 @@
 ---
-title: Understanding resource allocation in *Eucalyptus* trees, using Whole Tree Chambers
-
+title: Understanding resource allocation in *Eucalyptus* trees,<br/>using Whole Tree Chambers
 author: "Court Campany, Research Fellow"
 job   : Research Fellow, Hawkesbury Institute for the Environment
 runtime: shiny
