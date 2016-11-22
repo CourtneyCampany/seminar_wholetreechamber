@@ -678,7 +678,7 @@ shinyApp(
 
 * <strong>TBCA needs to be estimated as a residual</strong>
 
->  -  Soil respiration - C pools of litter, soils and roots
+>  -  Soil respiration - changes in C pools of litter, soils and roots
 >  -  Assumes steady-state conditions
 
 <br />
@@ -756,22 +756,24 @@ shinyApp(
 
 * <strong>Once trees are large enough, chamber floors installed and chamber fluxes measured</strong>
 
->  - Continuous aboveground C fluxes over 11 months  
++ Continuous aboveground C fluxes over 11 months  
 
 <br />
 
 * <strong>Allometric surveys fortnightly</strong>
 
->  - Height and diameter measurements, 
->  - Leaf litter collection and leaf counts
->  - Branch counts and lengths 
++ Height and diameter measurements, 
++ Leaf litter collection and leaf counts
++ Branch counts and lengths 
 
 <br />
 
 * <strong>Biomass harvest by structural components</strong>
 
->  - Density of branches, bole wood, bark
->  - Specific leaf area (SLA)
++ Density of branches, bole wood, bark
++ Specific leaf area (SLA)
+
+<IMG STYLE="position:absolute; TOP:275px; LEFT:700px;WIDTH:240px; HEIGHT:360px " SRC="img/chamber.JPG">
 
 ## Component C allocation with mass balance
 <hr>
@@ -780,17 +782,17 @@ shinyApp(
 
 * <strong>Harvest</strong>
 
->  - C content = 50% of dry biomass
->  - TBCA = Cumulative CO<sub>2</sub> flux  - mass of Branch + Bole + Leaves
->  - TBCA - Root mass = Root turnover + exudation + microbial respiration
++ C content = 48% of dry biomass (Dryad wood C database)
++ TBCA = Cumulative CO<sub>2</sub> flux  - mass of Branch + Bole + Leaves
++ TBCA - Root mass = Root turnover + exudation + microbial respiration
 
 <br />
 
 * <strong>Daily time steps</strong>
 
->  - Cumulative CO<sub>2</sub> flux per time step
->  - Volume and density to calculate wood mass</strong>
->  - Modelled leaf area (daily) and SLA to predict leaf mass
++ Cumulative CO<sub>2</sub> flux per time step
++ Volume and density to calculate wood mass</strong>
++ Modelled leaf area (daily) and SLA to predict leaf mass
 
 <br />
 
@@ -814,16 +816,16 @@ shinyApp(
 
 * <strong>Changes in C allocation encompass effects of tissue turnover, the storage and use of carbohydrates and root exudation</strong>
 
- > - Each represents a significant responses to environmental change.
- > - Patterns in biomass partitioning and C allocation may not be consistent  
- > - Contributes to the current uncertainty in modelling tree growth responses global change
+ + Each represents a significant responses to environmental change.
+ + Patterns in biomass partitioning and C allocation may not be consistent  
+ + Contributes to the current uncertainty in modelling tree growth responses global change
 
 <br />
 
 * <strong>Tissue specific C allocation represents the fraction of net canopy C uptake distributed to a given tissue</strong>
 
- > - WTC1: Leaf<sub>m</sub> = Leaf<sub>a</sub> * Canopy Flux C - Leaf<sub>t</sub>)
- > - Solve for allocation
+ > - WTC1: Leaf<sub>m</sub> = Leaf<sub>a</sub> * Canopy Flux C - Leaf<sub>t</sub>
+ > - Solve for allocation:
  > - WTC1:  Leaf<sub>a</sub> = (Leaf<sub>m</sub> - Leaf<sub>t</sub>) / Canopy Flux C 
  
 ## WTC: Canopy C uptake to component allocation
@@ -851,7 +853,7 @@ shinyApp(
 <br />
 
 * <strong>Difficult to empirically measure</strong>
-  + Shown to be poorly related (Litton et al. 2007)
+  + Sometimes shown to be poorly related (Litton et al. 2007)
 
 <br />
 
@@ -946,12 +948,7 @@ legend("topleft", leglab2, pch=c(19,1, 19, 1), col=c("blue", "blue", "red", "red
 
 <IMG STYLE="position:absolute;  TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/allocation.png">
 
-## TBCA ~50%
-<hr>
-<IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/tbca.png">
-
-
-## Is tree C allocation fixed?
+## Using mass balance to estimate TBCA
 <hr>
 
 ```{r, echo=FALSE, message=FALSE}
@@ -1018,7 +1015,11 @@ legend(x=13975, y=25300, dayClab, lty = c(1, 3, 2, 5, -1), pch = c(-1, -1, -1, -
 )
 ```
 
-## Is tree C allocation fixed?
+## TBCA ~50%
+<hr>
+<IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/tbca.png">
+
+## TBCA relatively stable fraction through time
 <hr>
 <IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/cflux_tbca.png">
 
@@ -1030,6 +1031,7 @@ legend(x=13975, y=25300, dayClab, lty = c(1, 3, 2, 5, -1), pch = c(-1, -1, -1, -
 * <strong>How should C allocation be represented in process-based forest models</strong>
 
 > - Empirically defined C allocation patterns constrained by functional relationships with biomass production are needed to reduce uncertainty and improve model predictions (De Kauwe et al 2014)
+> - Is TBCA less sensitive than previously thought?
 > - Even if TBCA doesnt change, belowground components still can
 
 <br />
@@ -1062,7 +1064,7 @@ legend(x=13975, y=25300, dayClab, lty = c(1, 3, 2, 5, -1), pch = c(-1, -1, -1, -
 ## Conclusions: C allocation from leaf to tree
 <hr>
 
-<IMG STYLE="position:absolute; TOP:200px; LEFT:300px; WIDTH:400px; HEIGHT:400px" SRC="img/treebracket.png">
+<IMG STYLE="position:absolute; TOP:180px; LEFT:325px; WIDTH:400px; HEIGHT:400px" SRC="img/treebracket.png">
 <br />
 <br />
 <br />
