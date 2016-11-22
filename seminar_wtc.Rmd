@@ -56,12 +56,12 @@ leaflet() %>% addTiles%>%
 
 * <strong>How are trees optimized for C gain?</strong>
   + Physiology, resource distribution and anatomy
-  + Will future global change affect these processes?
+  + Will global change affect these processes?
   
 <br />
 
 * <strong>Where does this C go?</strong>  
-  + Fate of photosynthetic C through trees  
+  + Growth, storage and loss 
   + Source vs sink activity  
   + Providing empirical data to models  
   
@@ -75,7 +75,7 @@ leaflet() %>% addTiles%>%
 
 <br />
 
-  + Distribution of H<sub>2</sub>0, N, P regulates leaf photosynthesis
+  + Distribution of nutrients and water regulate leaf photosynthesis
   <br />
   <br />
   
@@ -83,14 +83,14 @@ leaflet() %>% addTiles%>%
   <br />
   <br />
   
-  + Sum uptake of all leaves determines net canopy C uptake
+  + Sum of all leaves determines net canopy C uptake
   <br />
   <br />
   
-  + Canopy C must then be allocated, as a resource,  
+  + C must then be allocated, as a resource,  
   to growth, storage and reproduction
   
-## Whole Tree Chambers; Hawkesbury Forest Experiment
+## Whole Tree Chambers
 <hr>
 <br />
 
@@ -116,36 +116,18 @@ leaflet() %>% addTiles%>%
 <br />
 <br />
 
-* <strong>Address tree physiology and tree C allocation questions</strong>
+* <strong>Address physiology and C allocation questions</strong>
   + Canopy fluxes and canopy access for leaf-scale research
   + Large root enclosure for full biomass harvest
   
-<IMG STYLE="position:absolute; TOP:175px; LEFT:740px; WIDTH:300px; HEIGHT:450px" SRC="img/chamb3.jpg">  
-
-## Whole Tree Chambers Experiments
-<hr>
-<br />
-<br />
-
-* <strong>What they are:</strong>
-  + Tools for plant physiological research
-  + Excellent manipulative control of climate change factors
-  + Step beyond container based physiology experiments
-  + Entire canopy access
-  <br />
-  <br />
+<IMG STYLE="position:absolute; TOP:200px; LEFT:750px;" SRC="img/wtc_design.jpg">  
   
-* <strong>What they are not:</strong>
-  + A proxy for ecosystem level processes
-  
-<IMG STYLE="position:absolute; TOP:225px; LEFT:750px;" SRC="img/wtc_design.jpg">
-
-## Research across multiple scales
+## WTC: Dynamic leaf physiology within tree canopies
 <hr>
-###Dynamic leaf physiology within tree canopies
+
 <IMG STYLE="position:absolute; TOP:300px; LEFT:150px; WIDTH:800px; HEIGHT:200px" SRC="img/scaling.png">
 
-## Dynamic leaf physiology within tree canopies
+## WTC: Dynamic leaf physiology within tree canopies
 <hr>
 <IMG STYLE="position:absolute; TOP:200px; LEFT:100px;"  SRC="img/pce_paper.PNG">
 
@@ -244,6 +226,34 @@ leaflet() %>% addTiles%>%
 
 </div>
 
+
+## WTC3: Leaf physiology of *Eucalpytus tereticornis*
+<hr>
+
+
+<IMG STYLE="position:absolute; TOP:175px; LEFT:525px; WIDTH:450px; HEIGHT:500px" SRC="img/chamb3.jpg">
+
+
+<div style="float: left; width: 50%;">
+<br />
+
+* <strong>Climate warming treatment</strong>
+ + +3&deg;C ET treatments
+ + Minimal treatment effects found  
+<br />
+
+* <strong>Imposed drought in final months</strong>
+ + Focus on well watered trees  
+<br />
+
+* <strong>Gas exchange campaigns over 6 months</strong>
+ + Sun and shade leaves
+ + Leaf temperature = air temperature
+ + Photosynthesis, g<sub>s</sub> and g<sub>m</sub>
+ + Tunable diode laser for g<sub>m</sub>
+ 
+ </div>
+ 
 ## WTC3: Resource distribution of *Eucalpytus tereticornis*
 <hr>
 
@@ -273,32 +283,23 @@ leaflet() %>% addTiles%>%
 
 </div>
 
-
-## WTC3: Leaf physiology of *Eucalpytus tereticornis*
+## Sun vs. Shade leaves
 <hr>
-
-
-<IMG STYLE="position:absolute; TOP:175px; LEFT:525px; WIDTH:450px; HEIGHT:500px" SRC="img/chamb3.jpg">
-
-
-<div style="float: left; width: 50%;">
+<IMG STYLE="position:absolute; TOP:200px; LEFT:625px; WIDTH:350px; HEIGHT:450px" SRC="img/licor.jpg">
+<br />
 <br />
 
-* <strong>Climate warming treatment</strong>
- + +3&deg;C ET treatments
- + Minimal treatment effects found  
-<br />
-
-* <strong>Imposed drought in final months</strong>
- + Focus on well watered trees  
-<br />
-
-* <strong>Gas exchange campaigns over 6 months</strong>
- + Sun and shade leaves
- + Leaf temperature = air temperature
- + Tunable diode laser for g<sub>m</sub>
+* <strong>Measuring two canopy extremes</strong>
+ + Sun: top of canopy in full light
+ + Shade: bottom and middle canopy in full shade
+ + Verified with quantum sensor and ceptometer
+ + Gas exchange conducted at local light environment
  
- </div>
+<br />
+
+* <strong>'Lights On' for shade leaves</strong>
+ + Light level matches sun leaves
+ + Max sunfleck response (fluxes stable) 
  
 ##  Are tree canopies optimized for carbon gain?
 <hr>
@@ -317,26 +318,13 @@ leaflet() %>% addTiles%>%
 <br />
 
 * <strong>What is the role of g<sub>m</sub> as its costs are less clear?</strong>
-  + If A<sub>max</sub> is  in sun leaves then <strong>↑</strong>g<sub>m</sub> should be too 
+  + If A<sub>max</sub> is in sun leaves then <strong>↑</strong>g<sub>m</sub> should be too 
+  
+<br />
+
+* <strong>Is the canopy designed for sunflecks? </strong>  
   
  </div> 
- 
-## What's in a name? That which we call a <span style="color:hotpink">~~Rose~~</span> <span style="color:green">Leaf</span>
-<hr>
-<IMG STYLE="position:absolute; TOP:200px; LEFT:625px; WIDTH:350px; HEIGHT:450px" SRC="img/licor.jpg">
-<br />
-<br />
-
-* <strong>Measuring two canopy extremes</strong>
- + Sun: top of canopy in full light
- + Shade: bottom and middle canopy in full shade
- + Verified with quantum sensor and ceptometer
- 
-<br />
-
-* <strong>Leaves measured at current light environment</strong>
- + 'Lights On' for shade leaves
- +  Max sunfleck response (fluxes stable)  
  
 ## WTC3: Were sun and shade leaves fundamentally different?
 <hr> 
@@ -359,16 +347,17 @@ leaflet() %>% addTiles%>%
 <br />
 
 
-* <strong>A<sub>max</sub> reduced in shade</strong>
+* A<sub>max</sub> reduced in shade
 <br />
 
-* <strong>25% higher leaf Nitrogen in sun</strong>
+* 25% higher leaf Nitrogen in sun
 <br />
 
-* <strong>44% higher leaf hydraulic conductance in shade?</strong>
+* LMA similar
 <br />
 
-* <strong>Leaf mass area similar</strong>
+* <strong>44% higher leaf hydraulic conductance in shade</strong>
+
 </div>  
  
 ## Shade leaves exhibited apparent inefficient water use
@@ -460,7 +449,7 @@ shinyApp(
         ##type selection
         sidebarPanel(
         style = "border-color: #cc2904; background-color: white; border-style:dotted;border-width:medium",
-        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade-low light" = "shade-low", "Shade-high light" = "shade-high"))
+        checkboxGroupInput("whichleaf", "Pick a leaf:",c("Sun" = "sun-high", "Shade-low light" = "shade-low", "Shade-high light" = "shade-high"),selected="shade-low")
         ),
   
       mainPanel(
@@ -582,16 +571,18 @@ shinyApp(
 <br />
 <br />
 
-* <strong>Sunfleck research focuses heavily on understory</strong>
-  + Enhancing light interception is crucial for canopy C gain, 
+* <strong>Enhancing light interception is crucial for canopy C gain</strong>
+  +Sunfleck research focuses heavily on understory
 
 <br />
 
-> - <strong>Functional properties of *Eucalpytus* leaves and canopies</strong> 
->  - Vertical leaf angles
->  - Stomata on both sides of the leaf
->  - Sparse canopies 
->  - Everygreen: year round C gain 
+* <strong>Functional properties of *Eucalpytus* leaves and canopies</strong> 
+  + Vertical leaf angles
+  + Stomata on both sides of the leaf
+  + Sparse canopies 
+  + Everygreen: year round C gain 
+  
+<IMG STYLE="position:absolute; TOP:200px; LEFT:675px; WIDTH:300px; HEIGHT:450px" SRC="img/eucleaf.jpg">
 
 ## Moving forward: leaf to canopy economic spectrum
 <hr>
@@ -605,7 +596,7 @@ shinyApp(
 * <strong>How do trees optimize canopy C gain</strong>
 
 >  - Resource distribution
->  - Dynamic leaf physiology (g<sub>m</sub>)
+>  - Dynamic leaf physiology
 >  - Anatomy
 
 <br />
@@ -614,7 +605,7 @@ shinyApp(
 
 </div> 
 
-## Canopy C fluxes and whole tree C allocation
+##  WTC: Canopy C fluxes and whole tree C allocation
 <hr>
 
 <IMG STYLE="position:absolute; TOP:300px; LEFT:150px; WIDTH:800px; HEIGHT:200px" SRC="img/scaling.png">

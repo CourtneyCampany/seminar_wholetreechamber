@@ -38,3 +38,21 @@ knitr::opts_chunk$set(echo = FALSE)
 <hr>
 
 <IMG STYLE="position:absolute;  TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/massfrac.png">
+
+## Whole Tree Chambers Experiments
+<hr>
+<br />
+<br />
+
+* <strong>What they are:</strong>
+  + Tools for plant physiological research
+  + Excellent manipulative control for global change studies
+  + Step beyond container based experiments
+
+  <br />
+  <br />
+  
+* <strong>What they are not:</strong>
+  + A proxy for ecosystem level processes
+  
+<IMG STYLE="position:absolute; TOP:175px; LEFT:740px; WIDTH:300px; HEIGHT:450px" SRC="img/chamb3.jpg"> 
