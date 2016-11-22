@@ -1,6 +1,6 @@
 ---
-title: Understanding resource allocation in *Eucalyptus* trees,
-              using Whole Tree Chambers
+title: Understanding resource allocation in *Eucalyptus* trees, using Whole Tree Chambers
+
 author: "Court Campany, Research Fellow"
 job   : Research Fellow, Hawkesbury Institute for the Environment
 runtime: shiny
@@ -120,9 +120,9 @@ leaflet() %>% addTiles%>%
   + Canopy fluxes and canopy access for leaf-scale research
   + Large root enclosure for full biomass harvest
   
-<IMG STYLE="position:absolute; TOP:200px; LEFT:750px;" SRC="img/wtc_design.jpg">  
+<IMG STYLE="position:absolute; TOP:200px; LEFT:700px; WIDTH:300px; HEIGHT:400px" SRC="img/chamber.jpg">   
   
-## WTC: Dynamic leaf physiology within tree canopies
+## WTC: Dynamic leaf physiology within tree canopiesf
 <hr>
 
 <IMG STYLE="position:absolute; TOP:300px; LEFT:150px; WIDTH:800px; HEIGHT:200px" SRC="img/scaling.png">
@@ -304,9 +304,9 @@ leaflet() %>% addTiles%>%
 ##  Are tree canopies optimized for carbon gain?
 <hr>
 
-<IMG STYLE="position:absolute; TOP:200px; LEFT:50px;" SRC="img/euc_canopy2.jpg">
+<IMG STYLE="position:absolute; TOP:250px; LEFT:575px;" SRC="img/euc_canopy2.jpg">
 
-<div style="float: right; width: 50%;">
+<div style="float: left; width: 50%;">
 <br />
 
 * <strong>Do light gradients define leaf properties</strong>
@@ -572,7 +572,7 @@ shinyApp(
 <br />
 
 * <strong>Enhancing light interception is crucial for canopy C gain</strong>
-  +Sunfleck research focuses heavily on understory
+  + Sunfleck research focuses heavily on understory
 
 <br />
 
@@ -624,14 +624,14 @@ shinyApp(
 
 * <strong>Requires knowledge of global change impacts on forest ecosystems</strong>
 
->  - How is net canopy C gain affected?
->  - What components of allocation are most affected?
+  + How is net canopy C gain affected?
+  + What tree components are most affected?
 
 <br />
 
 * <strong>Allocation schemes are necessary to constrain models</strong>
 
->  - Is tree C allocation fixed or dymanic?
+  + Is tree C allocation fixed or dymanic?
 
 ## Strong focus on belowground C allocation (TBCA)
 <hr>
@@ -669,14 +669,14 @@ shinyApp(
 
 * <strong>TBCA needs to be estimated as a residual</strong>
 
->  -  Soil respiration - changes in C pools of litter, soils and roots
->  -  Assumes steady-state conditions
+  + Soil respiration - changes in C pools of litter, soils and roots
+  +  Assumes steady-state conditions
 
 <br />
 
 * <strong>Soil respiration scaled up</strong>
 
->  -  Point measurements (monthly) to yearly fluxes
+  + Point measurements (monthly) to yearly fluxes
 
 <br />
 
@@ -729,6 +729,9 @@ shinyApp(
 
 ## WTC1: Whole Tree CO<sub>2</sub> flux
 <hr>
+
+<div style="float: left; width: 60%;">
+<br />
 <br />
 <br />
 
@@ -740,6 +743,9 @@ shinyApp(
 <br />
 
 * <strong>CO<sub>2</sub> flux from mass balance of CO<sub>2</sub> entering and leaving the chamber with chamber ventilation</strong>
+</div>
+
+<IMG STYLE="position:absolute; TOP:200px; LEFT:750px;" SRC="img/wtc_design.jpg"> 
 
 ## Calculating tree C allocation
 <hr>
