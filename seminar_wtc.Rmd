@@ -578,7 +578,7 @@ shinyApp(
   + Vertical leaf angles
   + Stomata on both sides of the leaf
   + Sparse canopies 
-  + Everygreen: year round C gain 
+  + Evergreen: year round C gain 
   
 <IMG STYLE="position:absolute; TOP:200px; LEFT:675px; WIDTH:300px; HEIGHT:450px" SRC="img/eucleaf.jpg">
 
@@ -629,7 +629,7 @@ shinyApp(
 
 * <strong>Allocation schemes are necessary to constrain models</strong>
 
-  + Is C allocation in trees fixed or dymanic?
+  + Is C allocation in trees fixed or dynamic?
 
 ## Strong focus on belowground C allocation (TBCA)
 <hr>
