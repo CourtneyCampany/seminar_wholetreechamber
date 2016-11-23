@@ -121,7 +121,7 @@ leaflet() %>% addTiles%>%
   
 <IMG STYLE="position:absolute; TOP:200px; LEFT:700px; WIDTH:300px; HEIGHT:400px" SRC="img/chamber.jpg">   
   
-## WTC: Dynamic leaf physiology within tree canopiesf
+## WTC: Dynamic leaf physiology within tree canopies
 <hr>
 
 <IMG STYLE="position:absolute; TOP:300px; LEFT:150px; WIDTH:800px; HEIGHT:200px" SRC="img/scaling.png">
@@ -245,7 +245,7 @@ leaflet() %>% addTiles%>%
  + Focus on well watered trees  
 <br />
 
-* <strong>Gas exchange campaigns over 6 months</strong>
+* <strong>Gas exchange campaigns over 7  months</strong>
  + Sun and shade leaves
  + Leaf temperature = air temperature
  + Photosynthesis, g<sub>s</sub> and g<sub>m</sub>
@@ -265,10 +265,9 @@ leaflet() %>% addTiles%>%
 
 <br />
 
-* <strong>Leaf Hydraulics</strong>
+* <strong>Leaf Specific Hydraulic Conductance</strong>
  + Predawn / Midday water potentials
  + Leaf transpiration from gas exchange
- + Leaf specific hydraulic conductance
  
 </div> 
 
@@ -308,7 +307,7 @@ leaflet() %>% addTiles%>%
 <div style="float: left; width: 50%;">
 <br />
 
-* <strong>Do light gradients define leaf properties</strong>
+* <strong>Do light gradients define leaf properties?</strong>
   + Resources and photosynthetic capacity (<strong>A<sub>max</sub></strong>) should be <strong>↑</strong> in sun leaves  
 <br />
 
@@ -321,7 +320,7 @@ leaflet() %>% addTiles%>%
   
 <br />
 
-* <strong>Is the canopy designed for sunflecks? </strong>  
+* <strong>How is the inner canopy designed for sunflecks? </strong>  
   
  </div> 
  
@@ -346,7 +345,7 @@ leaflet() %>% addTiles%>%
 <br />
 
 
-* A<sub>max</sub> reduced in shade
+* A<sub>max</sub> greater in sun 
 <br />
 
 * 25% higher leaf Nitrogen in sun
@@ -500,7 +499,7 @@ shinyApp(
 
 </div> 
 
-##g<sub>m</sub> <strong>↑</strong> ~40% in shade leaves under high light
+##g<sub>m</sub> ~40% higher in shade leaves under high light
 <hr>
 
 <IMG STYLE="position:absolute; TOP:175px; LEFT:175px; WIDTH:700px; HEIGHT:500px" SRC="img/gm_shade.png">
@@ -535,7 +534,7 @@ shinyApp(
   server = function(input, output, session) {
     
     
-    leaf_ss<- reactive({
+    gm_ss<- reactive({
       subset(gm_dat2, leaflight %in% input$whichleaf)
       })
     
@@ -551,7 +550,7 @@ shinyApp(
     legend("topleft", alllab2, pch=c(16,16,16,16,17), col=allcols2, inset = 0.01, 
              bty='n',pt.cex=1.5,cex=1.2)
     
-    points(leaf_ss()[[2]]~ leaf_ss()[[3]], cex=2,  pch=c(16,17)[leaf_ss()[,4]],col=leaf_ss()[,1])
+    points(gm_ss()[[2]]~ gm_ss()[[3]], cex=2,  pch=c(16,17)[as.factor(gm_ss()[,4])],col=gm_ss()[,1])
     
   })
   }
@@ -630,7 +629,7 @@ shinyApp(
 
 * <strong>Allocation schemes are necessary to constrain models</strong>
 
-  + Is tree C allocation fixed or dymanic?
+  + Is C allocation in trees fixed or dymanic?
 
 ## Strong focus on belowground C allocation (TBCA)
 <hr>
@@ -656,7 +655,7 @@ shinyApp(
 
 * <strong>TBCA enhanced under eCO<sub>2</sub></strong>
   + Fine roots (Iversen et al. 2010)
-  + Exudation (Phillips et al. 2011)
+  + Root exudation (Phillips et al. 2011)
 
 <IMG STYLE="position:absolute; TOP:200px; LEFT:100px; " SRC="img/palmroth.png">
 
@@ -669,7 +668,7 @@ shinyApp(
 * <strong>TBCA needs to be estimated as a residual</strong>
 
   + Soil respiration - changes in C pools of litter, soils and roots
-  +  Assumes steady-state conditions
+  + Assumes steady-state conditions
 
 <br />
 
@@ -746,7 +745,7 @@ shinyApp(
 
 <IMG STYLE="position:absolute; TOP:200px; LEFT:750px;" SRC="img/wtc_design.jpg"> 
 
-## Calculating tree C allocation
+## Calculating component  C allocation
 <hr>
 <br />
 
@@ -792,7 +791,7 @@ shinyApp(
 
 <br />
 
-* <strong>To what degree is C allocation fixed under global change?</strong>
+* <strong>To what degree is C allocation altered under global change?</strong>
 
 ## 1<sup>st</sup> Step: Defining C allocation
 <hr>
