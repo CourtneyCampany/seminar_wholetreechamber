@@ -226,7 +226,7 @@ leaflet() %>% addTiles%>%
 </div>
 
 
-## WTC3: Leaf physiology of *Eucalpytus tereticornis*
+## WTC3: Leaf physiology of *Eucalyptus tereticornis*
 <hr>
 
 
@@ -253,7 +253,7 @@ leaflet() %>% addTiles%>%
  
  </div>
  
-## WTC3: Resource distribution of *Eucalpytus tereticornis*
+## WTC3: Resource distribution of *Eucalyptus tereticornis*
 <hr>
 
 <div style="float: left; width: 50%;">
@@ -574,7 +574,7 @@ shinyApp(
 
 <br />
 
-* <strong>Functional properties of *Eucalpytus* leaves and canopies</strong> 
+* <strong>Functional properties of *Eucalyptus* leaves and canopies</strong> 
   + Vertical leaf angles
   + Stomata on both sides of the leaf
   + Sparse canopies 
@@ -715,7 +715,7 @@ shinyApp(
 <br />
 <br />
 
-* <strong> *Eucalpytus saligna* or Sydney blue gum</strong>
+* <strong> *Eucalyptus saligna* or Sydney blue gum</strong>
   + Important global plantation species
   + Utilized in numerous climate change manipulation studies
 
