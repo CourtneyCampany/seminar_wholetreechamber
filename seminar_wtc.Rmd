@@ -384,7 +384,7 @@ leafnames <- unique(cond_dat$leaflight)
 leafnames2 <- data.frame(leaflight = leafnames, colorleaf = c(lightscol, shacol, suncol))
 
 cond_dat2 <- merge(cond_dat, leafnames2)
-cond_dat2$colorleaf <- as.character(cond_dat2$colorleaf)
+  cond_dat2$colorleaf <- as.character(cond_dat2$colorleaf)
 
 shinyApp(
   
